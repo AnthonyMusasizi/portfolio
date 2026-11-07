@@ -1,265 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Musasizi Anthony — Computer Science graduate, software developer, ICT instructor and technology professional in Uganda." />
-  <meta name="theme-color" content="#0b1020" />
-  <title>Musasizi Anthony | Technology Professional</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="Musasizi Anthony — Computer Science graduate, software developer, ICT instructor and technology professional in Uganda.">
+  <title>Musasizi Anthony | Technology & Software</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #090e1b; --panel: #111a2d; --panel2: #151f35; --text: #f3f6ff;
-      --muted: #a8b3ca; --accent: #67e8c1; --accent2: #7aa7ff; --line: rgba(255,255,255,.10);
-      --max: 1120px;
+      --bg:#080d18; --bg-soft:#0d1525; --panel:rgba(18,29,49,.78);
+      --panel-solid:#121d31; --text:#f4f7ff; --muted:#a8b4ca;
+      --mint:#68edc3; --blue:#83aaff; --line:rgba(210,225,255,.13);
+      --max:1160px; --radius:22px; --shadow:0 24px 80px rgba(0,0,0,.28);
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: radial-gradient(circle at 80% 0%, #172747 0, transparent 34%), var(--bg); color: var(--text); font-family: "DM Sans", sans-serif; line-height: 1.65; }
-    a { color: inherit; text-decoration: none; }
-    .wrap { width: min(var(--max), calc(100% - 42px)); margin: auto; }
-    header { position: sticky; top: 0; z-index: 10; background: rgba(9,14,27,.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
-    nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { font: 700 1.12rem "Space Grotesk", sans-serif; letter-spacing: -.04em; }
-    .brand span { color: var(--accent); }
-    .navlinks { display: flex; gap: 25px; align-items: center; color: var(--muted); font-size: .91rem; }
-    .navlinks a:hover { color: var(--accent); }
-    .menu { display: none; background: none; border: 1px solid var(--line); color: var(--text); border-radius: 10px; padding: 8px 12px; font-size: 1.1rem; }
-    .hero { padding: 104px 0 92px; display: grid; grid-template-columns: 1.35fr .65fr; gap: 55px; align-items: center; min-height: 590px; }
-    .eyebrow { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: .16em; font-size: .76rem; }
-    h1,h2,h3 { font-family: "Space Grotesk", sans-serif; line-height: 1.12; letter-spacing: -.04em; }
-    h1 { font-size: clamp(2.8rem, 7vw, 5.6rem); margin: 16px 0; }
-    h1 span { color: var(--accent); }
-    .hero h2 { color: #c8d4ec; font-size: clamp(1.1rem, 2vw, 1.45rem); font-weight: 500; letter-spacing: -.02em; line-height: 1.45; margin: 0 0 20px; }
-    .lead { color: var(--muted); max-width: 690px; font-size: 1.04rem; }
-    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 20px; border-radius: 9px; font-weight: 700; border: 1px solid var(--line); transition: .2s; }
-    .btn.primary { color: #06140f; background: var(--accent); border-color: var(--accent); }
-    .btn:hover { transform: translateY(-2px); }
-    .btn.secondary:hover { border-color: var(--accent); color: var(--accent); }
-    .profile-card { padding: 24px; background: linear-gradient(145deg, rgba(103,232,193,.12), rgba(122,167,255,.08)); border: 1px solid rgba(103,232,193,.22); border-radius: 24px; text-align: center; }
-    .avatar { width: 220px; height: 270px; margin: 0 auto 20px; border-radius: 18px; border: 2px solid rgba(103,232,193,.55); display: block; object-fit: cover; object-position: center 22%; background: #17243b; }
-    .profile-card p { color: var(--muted); margin: 4px 0; }
-    .location { color: var(--accent) !important; font-size: .88rem; }
-    section { padding: 82px 0; border-top: 1px solid var(--line); }
-    .section-head { max-width: 700px; margin-bottom: 38px; }
-    .section-head h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 10px 0 12px; }
-    .section-head p { color: var(--muted); margin: 0; }
-    .grid { display: grid; gap: 18px; }
-    .two { grid-template-columns: 1.1fr .9fr; }
-    .three { grid-template-columns: repeat(3, 1fr); }
-    .card { background: linear-gradient(150deg, rgba(21,31,53,.96), rgba(14,22,39,.96)); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
-    .card h3 { font-size: 1.18rem; margin: 0 0 10px; }
-    .card p { color: var(--muted); margin: 0; }
-    .skill-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
-    .tag { border: 1px solid rgba(103,232,193,.23); background: rgba(103,232,193,.07); color: #c9f9e9; border-radius: 100px; padding: 7px 12px; font-size: .83rem; }
-    .service-icon { color: var(--accent); font-size: 1.5rem; margin-bottom: 12px; }
-    .timeline { display: grid; gap: 15px; }
-    .timeline-item { position: relative; padding: 22px 24px 22px 28px; border-left: 2px solid rgba(103,232,193,.55); }
-    .timeline-item:before { content: ""; position: absolute; left: -7px; top: 27px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
-    .meta { color: var(--accent); font-size: .84rem; font-weight: 700; }
-    .timeline-item h3 { margin: 6px 0; font-size: 1.2rem; }
-    .timeline-item p { color: var(--muted); margin: 0; }
-    .project-card { min-height: 225px; display: flex; flex-direction: column; justify-content: space-between; }
-    .project-type { color: var(--accent); font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
-    .project-card h3 { font-size: 1.35rem; margin: 10px 0; }
-    .project-card .foot { color: #d9e2f4; font-size: .86rem; margin-top: 22px; }
-    .education-item { margin-bottom: 20px; }
-    .education-item:last-child { margin-bottom: 0; }
-    .education-item h3 { margin: 0 0 5px; }
-    .education-item p { color: var(--muted); margin: 0; }
-
-    .photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .photo-card { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 15px; background: var(--panel); }
-    .photo-card img { width: 100%; height: 290px; display: block; object-fit: cover; object-position: center; transition: transform .3s ease; }
-    .photo-card:hover img { transform: scale(1.035); }
-    .photo-card figcaption { color: var(--muted); padding: 12px 14px; font-size: .88rem; }
-    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 20px; }
-    .contact-line { padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--muted); overflow-wrap: anywhere; }
-    .contact-line strong { display: block; color: var(--text); font-size: .82rem; margin-bottom: 3px; }
-    form { display: grid; gap: 12px; }
-    input, textarea { width: 100%; background: #0b1426; border: 1px solid var(--line); border-radius: 9px; padding: 13px 14px; color: var(--text); font: inherit; }
-    textarea { min-height: 125px; resize: vertical; }
-    input:focus, textarea:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
-    footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
-    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    @media (max-width: 820px) {
-      .hero, .two, .contact-grid { grid-template-columns: 1fr; }
-      .hero { padding-top: 70px; gap: 35px; }
-      .profile-card { max-width: 420px; }
-      .three { grid-template-columns: repeat(2, 1fr); } .photo-grid { grid-template-columns: repeat(2, 1fr); }
-      .navlinks { display: none; position: absolute; left: 0; right: 0; top: 73px; padding: 20px 24px; background: #0c1425; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; }
-      .navlinks.open { display: flex; }
-      .menu { display: block; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.7;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 15% 5%,rgba(65,105,180,.17),transparent 35%),radial-gradient(ellipse at 85% 30%,rgba(63,220,177,.09),transparent 30%),linear-gradient(180deg,#080d18,#0a1120 55%,#080d18)}
+    body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.14;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    img{max-width:100%}
+    .container{width:min(var(--max),calc(100% - 44px));margin:auto}
+    .topbar{position:fixed;z-index:100;top:0;left:0;right:0;background:rgba(8,13,24,.76);backdrop-filter:blur(18px);border-bottom:1px solid transparent;transition:.3s}
+    .topbar.scrolled{border-color:var(--line);background:rgba(8,13,24,.94)}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{font:700 1.2rem "Space Grotesk",sans-serif;letter-spacing:-.06em}
+    .logo span{color:var(--mint)}
+    .navlinks{display:flex;align-items:center;gap:27px;color:#bdc8dc;font-size:.9rem}
+    .navlinks a{transition:color .2s}
+    .navlinks a:hover,.navlinks a.active{color:var(--mint)}
+    .nav-cta{padding:10px 17px;border:1px solid rgba(104,237,195,.45);border-radius:999px;color:var(--mint);font-weight:700;font-size:.86rem}
+    .menu-toggle{display:none;background:transparent;color:var(--text);border:1px solid var(--line);border-radius:11px;padding:8px 12px}
+    .hero{min-height:790px;padding:150px 0 95px;display:grid;grid-template-columns:1.22fr .78fr;align-items:center;gap:65px}
+    .kicker{display:inline-flex;align-items:center;gap:10px;color:var(--mint);font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em}
+    .kicker:before{content:"";width:27px;height:1px;background:var(--mint)}
+    h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.13;letter-spacing:-.045em}
+    h1{font-size:clamp(3.3rem,7vw,6.3rem);margin:20px 0 12px}
+    h1 .gradient{background:linear-gradient(100deg,var(--mint),#9fc2ff 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .roleline{font:600 clamp(1.15rem,2.2vw,1.55rem) "Space Grotesk",sans-serif;color:#d7e1f3;min-height:2.2em}
+    .roleline .typed{color:var(--mint)}
+    .cursor{display:inline-block;width:2px;height:1.05em;background:var(--mint);vertical-align:-.13em;margin-left:4px;animation:blink .8s steps(2) infinite}
+    @keyframes blink{50%{opacity:0}}
+    .hero-copy{max-width:660px;color:var(--muted);font-size:1.04rem;margin:22px 0 0}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 20px;border-radius:12px;font-weight:700;border:1px solid var(--line);transition:transform .25s,border-color .25s,background .25s}
+    .btn:hover{transform:translateY(-3px)}
+    .btn-primary{background:var(--mint);color:#07150f;border-color:var(--mint);box-shadow:0 10px 35px rgba(104,237,195,.16)}
+    .btn-secondary{background:rgba(255,255,255,.035);color:var(--text)}
+    .btn-secondary:hover{border-color:var(--mint);color:var(--mint)}
+    .socials{display:flex;gap:11px;margin-top:32px}
+    .socials a{width:40px;height:40px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:#c6d1e4;font-size:.78rem;font-weight:700;transition:.2s}
+    .socials a:hover{color:var(--mint);border-color:var(--mint);transform:translateY(-3px)}
+    .hero-visual{position:relative;max-width:410px;width:100%;justify-self:center}
+    .portrait-frame{position:relative;padding:13px;border-radius:30px;background:linear-gradient(145deg,rgba(104,237,195,.65),rgba(131,170,255,.12) 48%,rgba(255,255,255,.06));box-shadow:var(--shadow);transform:rotate(2deg)}
+    .portrait-frame:before{content:"";position:absolute;inset:22px -18px -18px 22px;border:1px solid rgba(104,237,195,.35);border-radius:30px;z-index:-1}
+    .portrait{display:block;width:100%;height:490px;object-fit:cover;object-position:center 20%;border-radius:21px;background:#17243a}
+    .photo-label{position:absolute;left:-35px;bottom:38px;padding:15px 19px;border:1px solid var(--line);border-radius:15px;background:rgba(12,21,37,.92);backdrop-filter:blur(14px);box-shadow:var(--shadow);transform:rotate(-2deg)}
+    .photo-label strong{display:block;font:700 1rem "Space Grotesk",sans-serif}
+    .photo-label span{color:var(--mint);font-size:.8rem}
+    .floating-chip{position:absolute;right:-25px;top:35px;padding:11px 15px;background:rgba(12,21,37,.92);border:1px solid var(--line);border-radius:13px;color:#dce7f7;font-size:.8rem;box-shadow:var(--shadow)}
+    .floating-chip b{color:var(--mint)}
+    .scroll-note{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#77859d}
+    section{padding:105px 0;border-top:1px solid var(--line)}
+    .section-heading{max-width:720px;margin-bottom:45px}
+    .section-heading h2{font-size:clamp(2.25rem,4.5vw,3.7rem);margin:14px 0}
+    .section-heading p{color:var(--muted);margin:0}
+    .eyebrow{font-size:.75rem;color:var(--mint);text-transform:uppercase;letter-spacing:.18em;font-weight:700}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .glass-card{background:linear-gradient(145deg,rgba(20,32,53,.88),rgba(12,21,37,.85));border:1px solid var(--line);border-radius:var(--radius);padding:29px;box-shadow:0 15px 50px rgba(0,0,0,.12)}
+    .glass-card h3{font-size:1.35rem;margin:0 0 15px}
+    .glass-card p{color:var(--muted);margin:0}
+    .skill-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+    .skill{padding:7px 12px;border:1px solid rgba(104,237,195,.2);background:rgba(104,237,195,.055);border-radius:999px;color:#d4f8ed;font-size:.82rem}
+    .skill-bars{display:grid;gap:18px;margin-top:25px}
+    .skill-top{display:flex;justify-content:space-between;gap:12px;font-size:.88rem;margin-bottom:7px}
+    .skill-top span:last-child{color:var(--mint)}
+    .bar{height:7px;border-radius:99px;background:#26344b;overflow:hidden}
+    .bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--mint),var(--blue));border-radius:99px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+    .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service-card{min-height:225px;transition:transform .3s,border-color .3s;position:relative;overflow:hidden}
+    .service-card:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-85px;bottom:-90px;background:rgba(104,237,195,.08);transition:transform .4s}
+    .service-card:hover{transform:translateY(-7px);border-color:rgba(104,237,195,.42)}
+    .service-card:hover:after{transform:scale(1.8)}
+    .service-icon{width:47px;height:47px;border-radius:14px;display:grid;place-items:center;background:rgba(104,237,195,.1);color:var(--mint);font-size:1.3rem;margin-bottom:22px}
+    .service-card h3{font-size:1.18rem;margin:0 0 10px}
+    .service-card p{font-size:.92rem}
+    .timeline-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .timeline{display:grid;gap:8px}
+    .timeline-item{position:relative;padding:8px 0 20px 25px;border-left:1px solid rgba(104,237,195,.38)}
+    .timeline-item:before{content:"";position:absolute;left:-5px;top:13px;width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 5px rgba(104,237,195,.1)}
+    .timeline-date{color:var(--mint);font-size:.77rem;font-weight:700;letter-spacing:.04em}
+    .timeline-item h3{font-size:1.06rem;margin:5px 0}
+    .timeline-item p{color:var(--muted);font-size:.88rem;margin:0}
+    .project-toolbar{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:25px}
+    .filter{border:1px solid var(--line);background:transparent;color:#b9c6da;border-radius:999px;padding:9px 15px;cursor:pointer;transition:.2s;font-size:.84rem}
+    .filter.active,.filter:hover{background:rgba(104,237,195,.1);border-color:rgba(104,237,195,.5);color:var(--mint)}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}
+    .project-card{padding:0;overflow:hidden;transition:transform .3s,border-color .3s}
+    .project-card:hover{transform:translateY(-7px);border-color:rgba(104,237,195,.42)}
+    .project-image{height:205px;overflow:hidden;background:linear-gradient(135deg,#1a3150,#13233a);position:relative}
+    .project-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s}
+    .project-card:hover .project-image img{transform:scale(1.06)}
+    .project-placeholder{height:100%;display:grid;place-items:center;color:rgba(220,240,255,.65);font:700 2.6rem "Space Grotesk",sans-serif;background:radial-gradient(circle at 70% 20%,rgba(104,237,195,.22),transparent 35%),linear-gradient(135deg,#142943,#10192b)}
+    .project-content{padding:22px}
+    .project-type{font-size:.7rem;color:var(--mint);text-transform:uppercase;letter-spacing:.13em;font-weight:700}
+    .project-content h3{font-size:1.2rem;margin:8px 0}
+    .project-content p{color:var(--muted);font-size:.88rem;margin:0}
+    .project-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+    .project-tags span{font-size:.72rem;color:#c5d2e7;background:rgba(255,255,255,.055);padding:5px 9px;border-radius:7px}
+    .project-link{display:inline-flex;margin-top:17px;color:var(--mint);font-size:.83rem;font-weight:700}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .gallery figure{margin:0;overflow:hidden;border-radius:17px;border:1px solid var(--line);background:var(--panel-solid)}
+    .gallery img{width:100%;height:280px;display:block;object-fit:cover;transition:transform .5s}
+    .gallery figure:hover img{transform:scale(1.06)}
+    .gallery figcaption{padding:12px 14px;color:var(--muted);font-size:.83rem}
+    .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:20px}
+    .contact-detail{padding:16px 0;border-bottom:1px solid var(--line);color:var(--muted);overflow-wrap:anywhere}
+    .contact-detail:last-child{border-bottom:0}
+    .contact-detail strong{display:block;color:var(--text);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+    .contact-detail a:hover{color:var(--mint)}
+    .contact-form{display:grid;gap:13px}
+    .contact-form input,.contact-form textarea{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:11px;background:#0a1323;color:var(--text);font:inherit;outline:none}
+    .contact-form input:focus,.contact-form textarea:focus{border-color:var(--mint);box-shadow:0 0 0 3px rgba(104,237,195,.08)}
+    .contact-form textarea{min-height:135px;resize:vertical}
+    .form-note{color:#8f9db4;font-size:.77rem}
+    footer{padding:28px 0;border-top:1px solid var(--line);color:#8f9db4;font-size:.82rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .back-top{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border-radius:13px;background:var(--mint);color:#07150f;display:grid;place-items:center;font-weight:800;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s;z-index:50}
+    .back-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr  .78fr;gap:35px;min-height:700px}
+      .portrait{height:420px}.cards-3,.projects{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(2,1fr)}
     }
-    @media (max-width: 560px) { .three { grid-template-columns: 1fr; } .photo-grid { grid-template-columns: 1fr 1fr; } .photo-card img { height: 220px; } section { padding: 64px 0; } .wrap { width: min(100% - 30px, var(--max)); } }
+    @media(max-width:700px){
+      .container{width:min(var(--max),calc(100% - 32px))}
+      .nav{height:70px}.menu-toggle{display:block}
+      .navlinks{display:none;position:absolute;top:69px;left:0;right:0;padding:20px 24px 24px;background:rgba(8,13,24,.98);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:17px}
+      .navlinks.open{display:flex}.nav-cta{display:none}
+      .hero{padding:125px 0 75px;grid-template-columns:1fr;gap:50px;min-height:auto}
+      .hero-visual{width:min(82%,390px);margin:0 auto}
+      .portrait{height:430px}.photo-label{left:-22px}.floating-chip{right:-18px}
+      section{padding:78px 0}.about-grid,.timeline-grid,.contact-grid{grid-template-columns:1fr}
+      .cards-3,.projects{grid-template-columns:1fr 1fr}
+      .scroll-note{display:none}
+    }
+    @media(max-width:480px){
+      h1{font-size:3.25rem}.hero-copy{font-size:.96rem}
+      .cards-3,.projects{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr;gap:10px}
+      .gallery img{height:210px}.glass-card{padding:22px}
+      .portrait{height:365px}
+    }
   </style>
 </head>
 <body>
-<header>
-  <nav class="wrap">
-    <a class="brand" href="#home">MUSASIZI<span>.</span></a>
-    <button class="menu" id="menuBtn" aria-label="Open navigation">☰</button>
-    <div class="navlinks" id="navlinks">
-      <a href="#about">About</a><a href="#services">Services</a><a href="#experience">Experience</a>
-      <a href="#projects">Projects</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
-    </div>
-  </nav>
-</header>
-
-<main>
-  <div class="wrap hero" id="home">
-    <div>
-      <div class="eyebrow">Hello, I'm</div>
-      <h1>Musasizi <span>Anthony</span></h1>
-      <h2>Computer Science Graduate · Software Developer · ICT Instructor · Technology Professional</h2>
-      <p class="lead">I use technology, creativity and practical problem-solving to build useful digital solutions, support technology systems and make knowledge easier to understand. Based in Uganda and open to meaningful opportunities in technology.</p>
-      <div class="actions">
-        <a class="btn primary" href="#contact">Hire Me</a>
-        <a class="btn secondary" href="#projects">Explore My Work</a>
+  <header class="topbar" id="topbar">
+    <nav class="nav container">
+      <a class="logo" href="#home">MUSASIZI<span>.</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="navlinks" id="navlinks">
+        <a href="#about">About</a><a href="#services">Services</a><a href="#experience">Experience</a>
+        <a href="#projects">Projects</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
       </div>
-    </div>
-    <aside class="profile-card">
-      <img class="avatar" src="public/images/profile.jpg" alt="Portrait of Musasizi Anthony in a cream suit">
-      <h3>Musasizi Anthony</h3>
-      <p>Computer Science Graduate</p>
-      <p class="location">Mbarara / Kampala, Uganda</p>
-    </aside>
-  </div>
+      <a class="nav-cta" href="#contact">Let's talk ↗</a>
+    </nav>
+  </header>
 
-  <section id="about">
-    <div class="wrap">
-      <div class="section-head"><div class="eyebrow">A little about me</div><h2>Technology, learning and problem-solving.</h2>
-        <p>I am a Computer Science graduate of Mbarara University of Science and Technology with a practical foundation in software development, databases, networking, operating systems and technical support.</p></div>
-      <div class="grid two">
-        <div class="card">
-          <h3>My professional approach</h3>
-          <p>My experience spans ICT instruction, technical support, educational animation and customer-facing sales. I enjoy working with people, understanding challenges and applying technology to create practical solutions. I am adaptable, collaborative and committed to continuous learning.</p>
-          <div class="skill-list"><span class="tag">Problem-solving</span><span class="tag">Communication</span><span class="tag">Teamwork</span><span class="tag">Technical support</span><span class="tag">Teaching & mentoring</span></div>
+  <main>
+    <section class="hero container" id="home" style="border:0">
+      <div class="hero-text">
+        <div class="kicker">Computer Science · Technology · Innovation</div>
+        <h1>Musasizi<br><span class="gradient">Anthony.</span></h1>
+        <div class="roleline">I'm a <span class="typed" id="typedRole">Software Developer</span><span class="cursor"></span></div>
+        <p class="hero-copy">I use technology, creativity and practical problem-solving to build useful digital solutions, support technology systems and make knowledge easier to understand. Based in Uganda and open to meaningful opportunities in technology.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Hire Me <span>↗</span></a>
+          <a class="btn btn-secondary" href="#projects">Explore My Work ↓</a>
         </div>
-        <div class="card">
-          <h3>Technical toolkit</h3>
-          <p>Tools and technologies from my academic, professional and practical experience.</p>
-          <div class="skill-list">
-            <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">TypeScript</span><span class="tag">SQL</span><span class="tag">PHP</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">React</span><span class="tag">Spring Boot</span><span class="tag">Django</span><span class="tag">MySQL</span><span class="tag">Git</span><span class="tag">Linux</span><span class="tag">Bash</span><span class="tag">Microsoft Office</span><span class="tag">Graphic Design</span><span class="tag">Animation</span><span class="tag">Arduino</span><span class="tag">KiCad</span><span class="tag">IoT</span><span class="tag">Robotics</span>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/musasizi-anthony-763603389/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="mailto:musasizianthony0@gmail.com" aria-label="Email">✉</a>
+          <a href="https://github.com/AnthonyMusasizi" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="portrait-frame">
+          <img class="portrait" src="/public/images/profile.jpg" alt="Portrait of Musasizi Anthony" onerror="this.onerror=null;this.src='/public/images/portrait.jpg'">
+        </div>
+        <div class="photo-label"><strong>Musasizi Anthony</strong><span>Computer Science Graduate</span></div>
+        <div class="floating-chip">Based in <b>Uganda 🇺🇬</b></div>
+      </div>
+      <div class="scroll-note">Scroll to explore ↓</div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading reveal"><div class="eyebrow">01 / About me</div><h2>Curious mind.<br>Practical solutions.</h2><p>Computer Science graduate of Mbarara University of Science and Technology with a practical foundation in software development, databases, networking, operating systems and technical support.</p></div>
+        <div class="about-grid">
+          <article class="glass-card reveal">
+            <h3>My professional approach</h3>
+            <p>My experience spans ICT instruction, technical support, educational animation and customer-facing sales. I enjoy working with people, understanding challenges and applying technology to create practical solutions. I am adaptable, collaborative and committed to continuous learning.</p>
+            <div class="skill-list"><span class="skill">Problem-solving</span><span class="skill">Communication</span><span class="skill">Teamwork</span><span class="skill">Technical support</span><span class="skill">Teaching & mentoring</span></div>
+          </article>
+          <article class="glass-card reveal delay-1">
+            <h3>Technical toolkit</h3>
+            <p>Technologies and tools from my academic, professional and practical experience.</p>
+            <div class="skill-list">
+              <span class="skill">Python</span><span class="skill">Java</span><span class="skill">C / C++</span><span class="skill">TypeScript</span><span class="skill">SQL</span><span class="skill">PHP</span><span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">React</span><span class="skill">Spring Boot</span><span class="skill">Django</span><span class="skill">MySQL</span><span class="skill">Git</span><span class="skill">Linux</span><span class="skill">Bash</span><span class="skill">Arduino</span><span class="skill">KiCad</span><span class="skill">IoT</span><span class="skill">Robotics</span><span class="skill">Animation</span>
+            </div>
+          </article>
+        </div>
+        <div class="glass-card reveal" style="margin-top:20px">
+          <h3>Areas I'm growing in</h3>
+          <div class="skill-bars">
+            <div class="skill-meter"><div class="skill-top"><span>Web development</span><span>Learning & building</span></div><div class="bar"><span data-width="88%"></span></div></div>
+            <div class="skill-meter"><div class="skill-top"><span>Programming & problem-solving</span><span>Learning & building</span></div><div class="bar"><span data-width="84%"></span></div></div>
+            <div class="skill-meter"><div class="skill-top"><span>ICT training & technical support</span><span>Practical experience</span></div><div class="bar"><span data-width="90%"></span></div></div>
+            <div class="skill-meter"><div class="skill-top"><span>Robotics & IoT prototyping</span><span>Hands-on experience</span></div><div class="bar"><span data-width="76%"></span></div></div>
           </div>
+          <p style="font-size:.75rem;margin-top:15px">These bars are visual indicators, not formal proficiency test scores.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head"><div class="eyebrow">What I can contribute</div><h2>Areas of work</h2><p>Practical services informed by my technical background and professional experience.</p></div>
-      <div class="grid three">
-        <article class="card"><div class="service-icon">⌘</div><h3>Software & Web Development</h3><p>Building and supporting web applications, database-driven systems and digital solutions.</p></article>
-        <article class="card"><div class="service-icon">▣</div><h3>ICT Training</h3><p>Teaching ICT and Computer Science concepts, guiding practical sessions and supporting learners.</p></article>
-        <article class="card"><div class="service-icon">⚙</div><h3>Technical Support</h3><p>Troubleshooting software, hardware and network issues, and assisting with system setup and maintenance.</p></article>
-        <article class="card"><div class="service-icon">✦</div><h3>Graphic Design & Animation</h3><p>Two years of graphic design experience, creating visual content, graphics and educational animations for clear communication.</p></article>
-        <article class="card"><div class="service-icon">⌁</div><h3>Database & IT Systems</h3><p>Working with relational databases, data organisation and the support of information systems.</p></article>
-        <article class="card"><div class="service-icon">◎</div><h3>Technology for Social Impact</h3><p>Contributing to collaborative initiatives that connect technology, communities and sustainability.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="wrap">
-      <div class="section-head"><div class="eyebrow">My journey</div><h2>Experience & education</h2><p>A selection of professional roles and academic milestones.</p></div>
-      <div class="grid two">
-        <div class="card">
-          <h3 style="margin-bottom:22px">Professional experience</h3>
-          <div class="timeline">
-            <div class="timeline-item"><div class="meta">2025 – Present</div><h3>Animator · African Health Informatics Research Institute</h3><p>Develop educational and research-support animations and visual content for health informatics initiatives.</p></div>
-            <div class="timeline-item"><div class="meta">March 2026 – Present</div><h3>ICT Instructor · Legacy Vocational Institute</h3><p>Teach ICT-related modules and mentor students in software and hardware projects.</p></div>
-            <div class="timeline-item"><div class="meta">October 2025 – October 2026</div><h3>Instructor · Achievers Professional College</h3><p>Deliver IT and Computer Science lessons and guide students through practical, project-based learning.</p></div>
-            <div class="timeline-item"><div class="meta">2 years</div><h3>Graphic Designer · Freelance / Creative Work</h3><p>Create visual designs and graphics for communication, branding and digital content, combining creativity with practical design skills.</p></div>
-            <div class="timeline-item"><div class="meta">8-week internship</div><h3>Robotics & IoT Intern · Fundi Bots</h3><p>Completed practical training in robotics, electronics and embedded systems, working with Arduino, sensors, microcontrollers, GPS/GSM modules, IoT connectivity, KiCad and SolidWorks.</p></div>
-            <div class="timeline-item"><div class="meta">2025 – Present</div><h3>Technical Support Specialist · FamlTech, TopNotch & others</h3><p>Support software, hardware and network troubleshooting, system setup and ICT infrastructure for local businesses.</p></div>
-            <div class="timeline-item"><div class="meta">2022 – 2026</div><h3>Sales Representative · Mysol Engie</h3><p>Supported sales, customer engagement, product guidance and relationship management.</p></div>
-          </div>
-        </div>
-        <div class="card">
-          <h3 style="margin-bottom:22px">Education</h3>
-          <div class="education-item"><div class="meta">August 2023 – October 2026</div><h3>Bachelor of Science in Computer Science</h3><p>Mbarara University of Science and Technology (MUST)</p></div>
-          <div class="education-item"><div class="meta">2020 – 2022</div><h3>Uganda Advanced Certificate of Education</h3><p>Cleverland High School</p></div>
-          <div class="education-item"><div class="meta">2016 – 2019</div><h3>Uganda Certificate of Education</h3><p>Cleverland High School</p></div>
-          <hr style="border:0;border-top:1px solid var(--line);margin:24px 0">
-          <h3>Leadership & community</h3>
-          <p style="margin-top:10px">Team Leader, EcoBin Project (2025–2026) · Team Member, River Rwizi Project (2024–2026) · Entertainment Prefect and House Captain, Cleverland High School (2020–2022).</p>
+    <section id="services">
+      <div class="container">
+        <div class="section-heading reveal"><div class="eyebrow">02 / What I do</div><h2>Ways I can contribute.</h2><p>Practical services informed by my technical background and professional experience.</p></div>
+        <div class="cards-3">
+          <article class="glass-card service-card reveal"><div class="service-icon">⌘</div><h3>Software & Web Development</h3><p>Building and supporting web applications, database-driven systems and useful digital solutions.</p></article>
+          <article class="glass-card service-card reveal delay-1"><div class="service-icon">▣</div><h3>ICT Training</h3><p>Teaching ICT and Computer Science concepts, guiding practical sessions and supporting learners.</p></article>
+          <article class="glass-card service-card reveal delay-2"><div class="service-icon">⚙</div><h3>Technical Support</h3><p>Troubleshooting software, hardware and network issues, and assisting with system setup and maintenance.</p></article>
+          <article class="glass-card service-card reveal"><div class="service-icon">✦</div><h3>Graphic Design & Animation</h3><p>Creating visual content, graphics and educational animations for clear communication.</p></article>
+          <article class="glass-card service-card reveal delay-1"><div class="service-icon">⌁</div><h3>Database & IT Systems</h3><p>Working with relational databases, data organisation and the support of information systems.</p></article>
+          <article class="glass-card service-card reveal delay-2"><div class="service-icon">◎</div><h3>Technology for Social Impact</h3><p>Contributing to collaborative initiatives that connect technology, communities and sustainability.</p></article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects">
-    <div class="wrap">
-      <div class="section-head"><div class="eyebrow">Selected work</div><h2>Projects & initiatives</h2><p>Projects and collaborative initiatives that reflect my interests in technology, community development and practical problem-solving.</p></div>
-      <div class="grid three">
-        <article class="card project-card"><div><div class="project-type">Smart recycling · Sustainability</div><h3>EcoCash Bin</h3><p>A smart plastic-recycling concept designed to weigh deposited plastics and reward users through mobile-money cashback, encouraging responsible waste disposal.</p></div><div class="foot">Project leadership · IoT concept · Social impact</div></article>
-        <article class="card project-card"><div><div class="project-type">Embedded systems · Emergency response</div><h3>Urgent Help</h3><p>An Arduino-based emergency alert prototype combining GPS and GSM modules to send an alert with location details when an emergency button is pressed.</p></div><div class="foot">Arduino · GPS · GSM · Electronics</div></article>
-        <article class="card project-card"><div><div class="project-type">Environment · Community</div><h3>River Rwizi Project</h3><p>A collaborative initiative supporting awareness and action around catchment protection, wetland conservation, pollution reduction and sustainable water use.</p></div><div class="foot">Community engagement · Sustainability</div></article>
-        <article class="card project-card"><div><div class="project-type">Education · Multimedia</div><h3>Health Informatics Animations</h3><p>Educational and research-support animations developed to communicate health informatics topics and help disseminate research findings.</p></div><div class="foot">Animation · Visual communication</div></article>
-        <article class="card project-card"><div><div class="project-type">Web development · Database</div><h3>Web & Database Applications</h3><p>Academic and practical work involving web technologies, relational databases, system design and application development.</p></div><div class="foot">PHP · HTML · CSS · MySQL · Java</div></article>
-        <article class="card project-card"><div><div class="project-type">Robotics · IoT</div><h3>Electronics & IoT Prototypes</h3><p>Hands-on prototyping with Arduino, sensors, displays, servos and connected devices through practical technical training.</p></div><div class="foot">Arduino · Sensors · KiCad · IoT</div></article>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="gallery">
-    <div class="wrap">
-      <div class="section-head"><div class="eyebrow">Behind the work</div><h2>My journey in pictures</h2><p>A few moments from graduation, collaborative projects and hands-on technical practice.</p></div>
-      <div class="photo-grid">
-        <figure class="photo-card"><img src="public/images/portrait.jpg" alt="Musasizi Anthony in a cream suit"><figcaption>Professional portrait</figcaption></figure>
-        <figure class="photo-card"><img src="public/images/graduation.jpg" alt="Musasizi Anthony in graduation attire"><figcaption>Graduation · MUST</figcaption></figure>
-        <figure class="photo-card"><img src="public/images/ecobin-team.jpg" alt="EcoBin project team presenting their prototype"><figcaption>EcoBin project team</figcaption></figure>
-        <figure class="photo-card"><img src="public/images/robotics-workshop.jpg" alt="Musasizi working on an electronics and robotics prototype"><figcaption>Hands-on robotics practice</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-head"><div class="eyebrow">Get in touch</div><h2>Let's work together.</h2><p>For job opportunities, collaborations, technical projects or professional enquiries, feel free to reach out.</p></div>
-      <div class="contact-grid">
-        <div class="card">
-          <div class="contact-line"><strong>Email</strong><a href="mailto:musasizianthony0@gmail.com">musasizianthony0@gmail.com</a></div>
-          <div class="contact-line"><strong>Phone</strong><a href="tel:+256776559141">+256 776 559 141</a> · <a href="tel:+256701902597">+256 701 902 597</a></div>
-          <div class="contact-line"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/musasizi-anthony-763603389/" target="_blank" rel="noopener">linkedin.com/in/musasizi-anthony</a></div>
-          <div class="contact-line"><strong>Location</strong>Mbarara / Kampala, Uganda</div>
-        </div>
-        <div class="card">
-          <form id="contactForm">
-            <input id="name" type="text" placeholder="Your name" required>
-            <input id="email" type="email" placeholder="Your email address" required>
-            <input id="subject" type="text" placeholder="Subject" required>
-            <textarea id="message" placeholder="Your message" required></textarea>
-            <button class="btn primary" type="submit">Send Message</button>
-            <small style="color:var(--muted)">This form opens your email application to send the message.</small>
-          </form>
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading reveal"><div class="eyebrow">03 / My journey</div><h2>Experience & education.</h2><p>Professional roles, practical training and academic milestones.</p></div>
+        <div class="timeline-grid">
+          <article class="glass-card reveal">
+            <h3 style="margin-top:0">Professional experience</h3>
+            <div class="timeline">
+              <div class="timeline-item"><div class="timeline-date">2025 – Present</div><h3>Animator · African Health Informatics Research Institute</h3><p>Develop educational and research-support animations and visual content for health informatics initiatives.</p></div>
+              <div class="timeline-item"><div class="timeline-date">March 2026 – Present</div><h3>ICT Instructor · Legacy Vocational Institute</h3><p>Teach ICT-related modules and mentor students in software and hardware projects.</p></div>
+              <div class="timeline-item"><div class="timeline-date">October 2025 – October 2026</div><h3>Instructor · Achievers Professional College</h3><p>Deliver IT and Computer Science lessons and guide students through practical, project-based learning.</p></div>
+              <div class="timeline-item"><div class="timeline-date">2 years</div><h3>Graphic Designer · Freelance / Creative Work</h3><p>Create visual designs and graphics for communication, branding and digital content.</p></div>
+              <div class="timeline-item"><div class="timeline-date">8-week internship</div><h3>Robotics & IoT Intern · Fundi Bots</h3><p>Practical training in robotics, electronics and embedded systems, using Arduino, sensors, microcontrollers, GPS/GSM modules, IoT connectivity, KiCad and SolidWorks.</p></div>
+              <div class="timeline-item"><div class="timeline-date">2025 – Present</div><h3>Technical Support Specialist · FamlTech, TopNotch & others</h3><p>Support software, hardware and network troubleshooting, system setup and ICT infrastructure for local businesses.</p></div>
+              <div class="timeline-item"><div class="timeline-date">2022 – 2026</div><h3>Sales Representative · Mysol Engie</h3><p>Supported sales, customer engagement, product guidance and relationship management.</p></div>
+            </div>
+          </article>
+          <article class="glass-card reveal delay-1">
+            <h3 style="margin-top:0">Education</h3>
+            <div class="timeline">
+              <div class="timeline-item"><div class="timeline-date">August 2023 – October 2026</div><h3>Bachelor of Science in Computer Science</h3><p>Mbarara University of Science and Technology (MUST)</p></div>
+              <div class="timeline-item"><div class="timeline-date">2020 – 2022</div><h3>Uganda Advanced Certificate of Education</h3><p>Cleverland High School</p></div>
+              <div class="timeline-item"><div class="timeline-date">2016 – 2019</div><h3>Uganda Certificate of Education</h3><p>Cleverland High School</p></div>
+            </div>
+            <div style="height:1px;background:var(--line);margin:22px 0"></div>
+            <h3>Leadership & community</h3>
+            <p>Team Leader, EcoBin Project (2025–2026) · Team Member, River Rwizi Project (2024–2026) · Entertainment Prefect and House Captain, Cleverland High School (2020–2022).</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
-</main>
-<footer><div class="wrap"><span>© <span id="year"></span> Musasizi Anthony. All rights reserved.</span><span>Designed with purpose · Uganda</span></div></footer>
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const navlinks = document.getElementById('navlinks');
-  menuBtn.addEventListener('click', () => navlinks.classList.toggle('open'));
-  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
-  document.getElementById('year').textContent = new Date().getFullYear();
-  document.getElementById('contactForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const message = document.getElementById('message').value.trim();
-    const body = `Name: ${name}%0AEmail: ${email}%0A%0A${encodeURIComponent(message)}`;
-    window.location.href = `mailto:musasizianthony0@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-  });
-</script>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading reveal"><div class="eyebrow">04 / Selected work</div><h2>Projects with purpose.</h2><p>Academic and collaborative work reflecting my interests in technology, community development and practical problem-solving.</p></div>
+        <div class="project-toolbar reveal" aria-label="Filter projects">
+          <button class="filter active" data-filter="all">All projects</button>
+          <button class="filter" data-filter="software">Software</button>
+          <button class="filter" data-filter="iot">IoT & hardware</button>
+          <button class="filter" data-filter="community">Community</button>
+          <button class="filter" data-filter="creative">Creative</button>
+        </div>
+        <div class="projects">
+          <article class="glass-card project-card reveal" data-category="iot">
+            <div class="project-image"><img src="/public/images/ecobin-team.jpg" alt="EcoBin project team" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div class=&quot;project-placeholder&quot;>ECO-BIN</div>')"></div>
+            <div class="project-content"><div class="project-type">Smart recycling · Sustainability</div><h3>ECO-BIN Smart Reverse Vending Machine</h3><p>A smart plastic-recycling concept designed to identify and weigh deposited plastic bottles and reward users, encouraging responsible waste disposal.</p><div class="project-tags"><span>IoT</span><span>Arduino</span><span>Sustainability</span><span>Team leadership</span></div></div>
+          </article>
+          <article class="glass-card project-card reveal delay-1" data-category="iot">
+            <div class="project-image"><div class="project-placeholder">URGENT HELP</div></div>
+            <div class="project-content"><div class="project-type">Embedded systems · Emergency response</div><h3>Urgent Help</h3><p>An Arduino-based emergency alert prototype combining GPS and GSM modules to send an alert with location details when an emergency button is pressed.</p><div class="project-tags"><span>Arduino</span><span>GPS</span><span>GSM</span><span>Electronics</span></div></div>
+          </article>
+          <article class="glass-card project-card reveal delay-2" data-category="community">
+            <div class="project-image"><div class="project-placeholder">RIVER RWIZI</div></div>
+            <div class="project-content"><div class="project-type">Environment · Community</div><h3>River Rwizi Project</h3><p>A collaborative initiative supporting awareness and action around catchment protection, wetland conservation, pollution reduction and sustainable water use.</p><div class="project-tags"><span>Community</span><span>Environment</span><span>Teamwork</span></div></div>
+          </article>
+          <article class="glass-card project-card reveal" data-category="creative">
+            <div class="project-image"><img src="/public/images/robotics-workshop.jpg" alt="Hands-on technical workshop" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div class=&quot;project-placeholder&quot;>ANIMATION</div>')"></div>
+            <div class="project-content"><div class="project-type">Education · Multimedia</div><h3>Health Informatics Animations</h3><p>Educational and research-support animations developed to communicate health informatics topics and help disseminate research findings.</p><div class="project-tags"><span>Animation</span><span>Visual storytelling</span><span>Education</span></div></div>
+          </article>
+          <article class="glass-card project-card reveal delay-1" data-category="software">
+            <div class="project-image"><div class="project-placeholder">WEB / DATA</div></div>
+            <div class="project-content"><div class="project-type">Web development · Database</div><h3>Web & Database Applications</h3><p>Academic and practical work involving web technologies, relational databases, system design and application development.</p><div class="project-tags"><span>PHP</span><span>HTML</span><span>CSS</span><span>MySQL</span><span>Java</span></div></div>
+          </article>
+          <article class="glass-card project-card reveal delay-2" data-category="iot">
+            <div class="project-image"><div class="project-placeholder">ROBOTICS</div></div>
+            <div class="project-content"><div class="project-type">Robotics · IoT</div><h3>Electronics & IoT Prototypes</h3><p>Hands-on prototyping with Arduino, sensors, displays, servos and connected devices through practical technical training.</p><div class="project-tags"><span>Arduino</span><span>Sensors</span><span>KiCad</span><span>IoT</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="section-heading reveal"><div class="eyebrow">05 / Behind the work</div><h2>My journey in pictures.</h2><p>Moments from graduation, collaborative projects and hands-on technical practice.</p></div>
+        <div class="gallery">
+          <figure class="reveal"><img src="/public/images/portrait.jpg" alt="Professional portrait of Musasizi Anthony" loading="lazy"><figcaption>Professional portrait</figcaption></figure>
+          <figure class="reveal delay-1"><img src="/public/images/graduation.jpg" alt="Graduation at MUST" loading="lazy"><figcaption>Graduation · MUST</figcaption></figure>
+          <figure class="reveal delay-2"><img src="/public/images/ecobin-team.jpg" alt="ECO-BIN project team" loading="lazy"><figcaption>ECO-BIN project team</figcaption></figure>
+          <figure class="reveal delay-3"><img src="/public/images/robotics-workshop.jpg" alt="Robotics and electronics workshop" loading="lazy"><figcaption>Hands-on robotics practice</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading reveal"><div class="eyebrow">06 / Get in touch</div><h2>Let's build something useful.</h2><p>For job opportunities, collaborations, technical projects or professional enquiries, feel free to reach out.</p></div>
+        <div class="contact-grid">
+          <article class="glass-card reveal">
+            <h3>Contact information</h3>
+            <div class="contact-detail"><strong>Email</strong><a href="mailto:musasizianthony0@gmail.com">musasizianthony0@gmail.com</a></div>
+            <div class="contact-detail"><strong>Phone</strong><a href="tel:+256776559141">+256 776 559 141</a> · <a href="tel:+256701902597">+256 701 902 597</a></div>
+            <div class="contact-detail"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/musasizi-anthony-763603389/" target="_blank" rel="noopener">Musasizi Anthony ↗</a></div>
+            <div class="contact-detail"><strong>GitHub</strong><a href="https://github.com/AnthonyMusasizi" target="_blank" rel="noopener">github.com/AnthonyMusasizi ↗</a></div>
+            <div class="contact-detail"><strong>Location</strong>Mbarara / Kampala, Uganda</div>
+          </article>
+          <article class="glass-card reveal delay-1">
+            <h3>Send a message</h3>
+            <form class="contact-form" id="contactForm">
+              <input id="name" type="text" placeholder="Your name" aria-label="Your name" required>
+              <input id="email" type="email" placeholder="Your email address" aria-label="Your email address" required>
+              <input id="subject" type="text" placeholder="Subject" aria-label="Subject" required>
+              <textarea id="message" placeholder="Tell me about your enquiry..." aria-label="Your message" required></textarea>
+              <button class="btn btn-primary" type="submit">Send message ↗</button>
+              <span class="form-note">This form opens your email application with your message prepared.</span>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Musasizi Anthony. All rights reserved.</span><span>Designed with purpose · Uganda</span></div></footer>
+  <a class="back-top" id="backTop" href="#home" aria-label="Back to top">↑</a>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById('menuToggle');
+    const navlinks = document.getElementById('navlinks');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navlinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '×' : '☰';
+    });
+    navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navlinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    }));
+
+    // Header, back-to-top and active navigation state
+    const topbar = document.getElementById('topbar');
+    const backTop = document.getElementById('backTop');
+    const sections = [...document.querySelectorAll('main section[id]')];
+    function onScroll() {
+      topbar.classList.toggle('scrolled', window.scrollY > 20);
+      backTop.classList.toggle('show', window.scrollY > 500);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.navlinks a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach(section => navObserver.observe(section));
+
+    // Reveal elements and animate skill bars when they enter the viewport
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          entry.target.querySelectorAll('.bar span').forEach(bar => bar.style.width = bar.dataset.width || '0');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    const skillsCard = document.querySelector('.skill-bars');
+    if (skillsCard) {
+      const skillObserver = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          skillsCard.querySelectorAll('.bar span').forEach(bar => bar.style.width = bar.dataset.width);
+          skillObserver.disconnect();
+        }
+      }, { threshold: .3 });
+      skillObserver.observe(skillsCard);
+    }
+
+    // Animated role text
+    const roles = ['Software Developer', 'Computer Science Graduate', 'ICT Instructor', 'Technology Professional'];
+    const typedRole = document.getElementById('typedRole');
+    let roleIndex = 0, charIndex = roles[0].length, deleting = true;
+    function typeRole() {
+      const current = roles[roleIndex];
+      if (deleting) {
+        charIndex--;
+        typedRole.textContent = current.slice(0, Math.max(0, charIndex));
+        if (charIndex <= 0) { deleting = false; roleIndex = (roleIndex + 1) % roles.length; }
+        setTimeout(typeRole, 45);
+      } else {
+        const next = roles[roleIndex];
+        charIndex++;
+        typedRole.textContent = next.slice(0, charIndex);
+        if (charIndex >= next.length) { deleting = true; setTimeout(typeRole, 1500); }
+        else setTimeout(typeRole, 78);
+      }
+    }
+    setTimeout(typeRole, 1800);
+
+    // Project category filters
+    const filters = document.querySelectorAll('.filter');
+    const projectCards = document.querySelectorAll('.project-card');
+    filters.forEach(button => button.addEventListener('click', () => {
+      filters.forEach(filter => filter.classList.remove('active'));
+      button.classList.add('active');
+      const selected = button.dataset.filter;
+      projectCards.forEach(card => {
+        const show = selected === 'all' || card.dataset.category === selected;
+        card.style.display = show ? '' : 'none';
+      });
+    }));
+
+    // Contact form uses mailto; no backend is required
+    document.getElementById('contactForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+      window.location.href = `mailto:musasizianthony0@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
